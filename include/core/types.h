@@ -22,7 +22,7 @@
 /* --- Velocidades de deslocação (km/h) ----- */
 #define VEL_PE 5.0
 #define VEL_TAXI 40.0
-#define VEL_AUTORCARRO 20.0
+#define VEL_AUTOCARRO 20.0
 
 /* --- Raio médio da terra (metros) ---------- */
 #define RAIO_TERRA_M 6371000.0
