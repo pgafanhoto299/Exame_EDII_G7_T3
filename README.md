@@ -8,6 +8,9 @@ Objetivo:
     • Modelar a rede de caminhos como um grafo ponderado (distancias Haversine)
     • Calcular o caminho mais curto entre dois pontos com o algoritmo de Dijkstra
     • Persistir todos os dados em ficheiros de texto csv
+
+
+    
 Instalação:(Ver.)
 Como usar: (Orl.)
 Contribuição: (Ver. e Orl.)
