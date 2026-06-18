@@ -1,0 +1,2 @@
+id;nome;modalidade;latitude;longitude;capacidade;disponivel
+1;Nova Vida Arena;Futebol;-8.212300;13.323300;123;0
