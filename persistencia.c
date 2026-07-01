@@ -11,7 +11,7 @@
    ============================================================ */
 
 /* ---------- auxiliar: lê linha e descarta cabeçalho ---------- */
-static int lerCabecalho(FILE *f) {
+int lerCabecalho(FILE *f) {
     char buf[512];
     return fgets(buf, sizeof(buf), f) != NULL;
 }

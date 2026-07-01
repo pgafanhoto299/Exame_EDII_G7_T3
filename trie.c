@@ -9,7 +9,7 @@
    ============================================================ */
 
 /* Normaliza carácter para índice 0-25 (ignora não-alfabéticos) */
-static int indice(char c) {
+int indice(char c) {
    c = (char)tolower((unsigned char)c);
     if (c >= 'a' && c <= 'z') return c - 'a';
     return -1;
@@ -50,7 +50,7 @@ int pesquisarTrie(TrieNode *raiz, const char *s, int *idOut) {
 }
 
 /* Recolha recursiva de todos os ids a partir de 'cur' */
-static void recolherIds(TrieNode *cur, int ids[], int *n, int maxN) {
+void recolherIds(TrieNode *cur, int ids[], int *n, int maxN) {
     if (!cur || *n >= maxN) return;
     if (cur->fim) ids[(*n)++] = cur->idRecinto;
     for (int i = 0; i < ALPHA; i++)

@@ -118,3 +118,91 @@
 	"persistencia.h"
 	"reservas.h"
 
+1782584575 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/dijkstra.c
+	<float.h>
+	<string.h>
+	<stdio.h>
+	"dijkstra.h"
+	"heap.h"
+	"haversine.h"
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/dijkstra.h
+	"grafo.h"
+	"modelos.h"
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/grafo.h
+	"modelos.h"
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/modelos.h
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/heap.h
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/haversine.h
+
+1782584575 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/grafo.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"grafo.h"
+
+1782584575 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/haversine.c
+	<math.h>
+	"haversine.h"
+
+1782590440 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/heap.c
+	<stdio.h>
+	<float.h>
+	"heap.h"
+
+1782586775 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/lista_recintos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lista_recintos.h"
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/lista_recintos.h
+	"modelos.h"
+
+1782585482 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<float.h>
+	"modelos.h"
+	"lista_recintos.h"
+	"trie.h"
+	"grafo.h"
+	"heap.h"
+	"haversine.h"
+	"dijkstra.h"
+	"persistencia.h"
+	"reservas.h"
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/trie.h
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/persistencia.h
+	"modelos.h"
+	"grafo.h"
+
+1782584575 /home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/reservas.h
+	"modelos.h"
+
+1782585812 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/persistencia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"persistencia.h"
+	"haversine.h"
+
+1782585745 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/reservas.c
+	<stdio.h>
+	<string.h>
+	"reservas.h"
+
+1782590560 source:/home/guga/Documentos/ED II/exame/Exame_EDII_G7_T3/trie.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+	"trie.h"
+

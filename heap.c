@@ -6,11 +6,11 @@
    heap.c  –  Implementação da Min-Heap (por distância)
    ============================================================ */
 
-static void trocar(HeapNode *a, HeapNode *b) {
+void trocar(HeapNode *a, HeapNode *b) {
     HeapNode tmp = *a; *a = *b; *b = tmp;
 }
 
-static void subir(MinHeap *hp, int i) {
+void subir(MinHeap *hp, int i) {
     while (i > 0) {
         int pai = (i - 1) / 2;
         if (hp->h[pai].dist > hp->h[i].dist) {
@@ -20,7 +20,7 @@ static void subir(MinHeap *hp, int i) {
     }
 }
 
-static void descer(MinHeap *hp, int i) {
+void descer(MinHeap *hp, int i) {
     int n = hp->tam;
     while (1) {
         int menor = i;

@@ -1,9 +1,9 @@
-/*  Externas */
+/*  Bibliotecas Externas */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <float.h>
-/* Locais */
+/* Bibliotecas do Kila field */
 #include "modelos.h"
 #include "lista_recintos.h"
 #include "trie.h"
@@ -23,52 +23,53 @@ Grafo         grafo;
 Reserva       reservas[MAX_RESERVAS];
 int           nReservas = 0;
 
-/* ---------- auxiliares de input ---------- */
-static void limparBuffer(void) {
+/* ---------- Funcoes auxiliares de input ---------- */
+void limparBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-static int lerInt(const char *msg) {
+int lerInt(char *msg) {
     int v;
     printf("%s", msg);
-    while (scanf("%d", &v) != 1) { 
-        limparBuffer(); printf("  Valor invalido. %s", msg); 
+    while (scanf("%d", &v) != 1) {
+        limparBuffer(); printf("  Valor invalido. %s", msg);
     }
     limparBuffer();
     return v;
 }
 
-static void lerString(const char *msg, char *buf, int max) {
+void lerString(char *msg, char *buf, int max) {
     printf("%s", msg);
     fgets(buf, max, stdin);
     buf[strcspn(buf, "\n")] = '\0';
 }
 
 /* ---------- reconstrução da Trie a partir da lista ---------- */
-static void reconstruirTrie(void) {
+void reconstruirTrie() {
     if (trie) libertarTrie(trie);
     trie = criarTrie();
     for (NoRecinto *p = listaRecintos; p; p = p->prox)
         inserirTrie(trie, p->recinto.nome, p->recinto.id);
 }
 
-/* ============================================================
-                            MENUS
-   ============================================================ */
 
-/* ---------- 1. Gestão de recintos ---------- */
-static void menuRecintos(void) {
+//Gestão de recintos
+void menuRecintos() {
     int op;
     do {
-        printf("\n--- Gestao de Recintos ---\n");
-        printf("  1. Listar todos os recintos\n");
-        printf("  2. Adicionar recinto\n");
-        printf("  3. Remover recinto\n");
-        printf("  4. Pesquisar recinto por nome (Trie)\n");
-        printf("  5. Filtrar por modalidade\n");
-        printf("  6. Alterar disponibilidade\n");
-        printf("  0. Voltar\n");
+        printf("_________________________________________");
+printf("\n|__________Gestao de Recintos___________|\n");
+printf("|\t  1. Listar recintos\t\t|\n");
+printf("|\t  2. Adicionar recinto\t\t|\n");
+printf("|\t  3. Remover recinto\t\t|\n");
+printf("|\t  4. Pesquisar por nome\t\t|\n");
+printf("|\t     (Trie)\t\t\t|\n");
+printf("|\t  5. Filtrar modalidade\t\t|\n");
+printf("|\t  6. Alterar disponibilidade \t|\n");
+printf("|\t  0. Voltar\t\t\t|\n");
+printf("|_______________________________________|\n");
+
         op = lerInt("Opcao: ");
 
         if (op == 1) {
@@ -129,15 +130,17 @@ static void menuRecintos(void) {
     } while (op != 0);
 }
 
-/* ---------- 2. Gestão de utilizadores ---------- */
-static void menuUtilizadores(void) {
+//Gestão de utilizadores
+void menuUtilizadores() {
     int op;
     do {
-        printf("\n--- Gestao de Utilizadores ---\n");
-        printf("  1. Listar utilizadores\n");
-        printf("  2. Adicionar utilizador\n");
-        printf("  3. Remover utilizador\n");
-        printf("  0. Voltar\n");
+         printf(" ________________________________________");
+printf("\n|________Gestao de Utilizadores_________|\n");
+printf("|\t  1. Listar utilizadores\t|\n");
+printf("|\t  2. Adicionar utilizador\t|\n");
+printf("|\t  3. Remover utilizador\t\t|\n");
+printf("|\t  0. Voltar\t\t\t|\n");
+printf("|_______________________________________|\n");
         op = lerInt("Opcao: ");
 
         if (op == 1) {
@@ -172,16 +175,19 @@ static void menuUtilizadores(void) {
 }
 
 /* ---------- 3. Reservas ---------- */
-static void menuReservas(void) {
+void menuReservas() {
     int op;
     do {
-        printf("\n--- Reservas ---\n");
-        printf("  1. Criar reserva\n");
-        printf("  2. Cancelar reserva\n");
-        printf("  3. Listar reservas por utilizador\n");
-        printf("  4. Listar reservas por recinto\n");
-        printf("  0. Voltar\n");
-        op = lerInt("Opcao: ");
+         printf(" ________________________________________");
+printf("\n|_______________Reservas_______________|\n");
+printf("|\t  1. Criar reserva\t\t|\n");
+printf("|\t  2. Cancelar reserva\t\t|\n");
+printf("|\t  3. Reservas por\t\t|\n");
+printf("|\t     utilizador\t\t\t|\n");
+printf("|\t  4. Reservas por recinto\t|\n");
+printf("|\t  0. Voltar\t\t\t|\n");
+printf("|_______________________________________|\n");
+       op = lerInt("Opcao: ");
 
         if (op == 1) {
             int   idU = lerInt("  ID utilizador: ");
@@ -209,17 +215,21 @@ static void menuReservas(void) {
 }
 
 /* ---------- 4. Grafo e rotas ---------- */
-static void menuGrafo(void) {
+void menuGrafo() {
     int op;
     do {
-        printf("\n--- Grafo e Rotas ---\n");
-        printf("  1. Mostrar grafo\n");
-        printf("  2. Adicionar vertice\n");
-        printf("  3. Adicionar aresta\n");
-        printf("  4. Caminho mais curto (Dijkstra)\n");
-        printf("  5. Recinto mais proximo de coordenada\n");
-        printf("  6. Distancia entre dois pontos (Haversine)\n");
-        printf("  0. Voltar\n");
+        printf(" ________________________________________");
+printf("\n|____________Grafo e Rotas______________|\n");
+printf("|\t  1. Mostrar grafo\t\t|\n");
+printf("|\t  2. Adicionar vertice\t\t|\n");
+printf("|\t  3. Adicionar aresta\t\t|\n");
+printf("|\t  4. Caminho mais curto\t\t|\n");
+printf("|\t     (Dijkstra)\t\t\t|\n");
+printf("|\t  5. Recinto mais proximo\t|\n");
+printf("|\t     de coordenada\t\t|\n");
+printf("|\t  6. Distancia (Haversine)\t|\n");
+printf("|\t  0. Voltar\t\t\t|\n");
+printf("|_______________________________________|\n");
         op = lerInt("Opcao: ");
 
         if (op == 1) {
@@ -294,13 +304,15 @@ static void menuGrafo(void) {
 }
 
 /* ---------- 5. Persistência ---------- */
-static void menuPersistencia(void) {
+void menuPersistencia() {
     int op;
-    do {
-        printf("\n--- Persistencia ---\n");
-        printf("  1. Carregar todos os dados\n");
-        printf("  2. Guardar todos os dados\n");
-        printf("  0. Voltar\n");
+    do {printf(" ________________________________________");
+        printf("\n|_____________Persistencia______________|\n");
+        printf("|\t  1. Carregar todos os dados\t|\n");
+        printf("|\t  2. Guardar todos os dados\t|\n");
+        printf("|\t  0. Voltar\t\t\t|\n");
+        printf("|_______________________________________|\n");
+
         op = lerInt("Opcao: ");
 
         if (op == 1) {
@@ -330,7 +342,7 @@ static void menuPersistencia(void) {
 /* ============================================================
    DADOS DE EXEMPLO  (popula a aplicação sem ficheiros externos)
    ============================================================ */
-static void carregarDadosExemplo(void) {
+void carregarDadosExemplo() {
     /* Utilizadores */
     Utilizador us[] = {
         {1, "Gustavo Guenge",    -8.8147, 13.2302},
@@ -389,20 +401,22 @@ int main() {
     inicializarGrafo(&grafo);
     trie = criarTrie();
 
-    printf("=========================================\n");
-    printf("  KilaField v1.0   \n");
-    printf("=========================================\n");
-    //carregarDadosExemplo();
+    printf("*****************************************\n");
+    printf("#");
+    printf("       KilaField  version 1.0");
+    printf("          #\n");
+    printf("*****************************************\n");
+    carregarDadosExemplo();
 
     int op;
     do {
-        printf("\n========= MENU PRINCIPAL =========\n");
-        printf("  1. Gerir Recintos\n");
-        printf("  2. Gerir Utilizadores\n");
-        printf("  3. Gerir Reservas\n");
-        printf("  4. Grafo e Rotas\n");
-        printf("  5. Persistencia (ficheiros)\n");
-        printf("  0. Sair\n");
+        printf("‖\t  1. Gerir Recintos             ‖\n");
+        printf("‖\t  2. Gerir Utilizadores         ‖\n");
+        printf("‖\t  3. Gerir Reservas\t\t‖\n");
+        printf("‖\t  4. Grafo e Rotas\t\t‖\n");
+        printf("‖\t  5. Persistencia (ficheiros)\t‖\n");
+        printf("‖\t  0. Sair\t\t\t‖\n");
+    printf("=========================================\n");
         op = lerInt("Opcao: ");
 
         switch (op) {

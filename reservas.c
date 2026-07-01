@@ -7,7 +7,7 @@
    ============================================================ */
 
 /* Converte "HH:MM" em minutos desde meia-noite */
-static int horaParaMin(const char *h) {
+int horaParaMin(const char *h) {
     int hh = 0, mm = 0;
     sscanf(h, "%d:%d", &hh, &mm);
      return hh * 60 + mm;
@@ -50,7 +50,7 @@ int criarReserva(Reserva lista[], int *n, int maxN,
     nova.idReserva = maxId + 1;
 
     lista[(*n)++] = nova;
-    printf("  Reserva #%d criada com sucesso.\n", nova.idReserva);
+    printf("*  Reserva #%d criada com sucesso.\t*\n", nova.idReserva);
     return 1;
 }
 

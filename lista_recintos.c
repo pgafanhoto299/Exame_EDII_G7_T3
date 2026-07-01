@@ -45,17 +45,18 @@ int contarRecintos(const NoRecinto *lista) {
 
 void listarRecintos(const NoRecinto *lista) {
     if (!lista) { printf("  (nenhum recinto registado)\n"); return; }
-    printf("  %-4s %-30s %-20s %-8s %-8s %-10s %s\n",
-           "ID", "Nome", "Modalidade", "Lat", "Lon", "Cap.", "Disp.");
-    printf("  %s\n", "--------------------------------------------------------------------");
+    printf("  %-4s %-35s %-20s %-8s %-8s %-10s %s\n",
+           "ID\t", "Nome\t\t", "Modalidade\t", "Latitudet\t", "Longitude\t", "Capacidade\t", "Disponibilidade");
+    printf("  %s\n", "----------------------------------------------------------------------------------------------------------------------------------------------");
     for (const NoRecinto *p = lista; p; p = p->prox) {
         const Recinto *r = &p->recinto;
-        printf("  %-4d %-30s %-20s %-8.4f %-8.4f %-10d %s\n",
+        printf("  %-4d\t %-35s\t\t %-20s\t %-8.4f\t %-8.4f\t %-10d\t %s\n",
                r->id, r->nome, r->modalidade,
                r->latitude, r->longitude,
                r->capacidade,
                r->disponivel ? "Sim" : "Nao");
     }
+    printf("  %s\n", "----------------------------------------------------------------------------------------------------------------------------------------------");
 }
 
 void listarRecintosPorModalidade(const NoRecinto *lista,
