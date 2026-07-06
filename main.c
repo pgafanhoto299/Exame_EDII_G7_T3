@@ -373,8 +373,8 @@ void carregarDadosExemplo() {
     adicionarVertice(&grafo, 2, "Pavilhao Kilamba",     -8.8200, 13.2350, "recinto");
     adicionarVertice(&grafo, 3, "Arena Premier Bet Benfica", -8.8050, 13.2150, "recinto");
     adicionarVertice(&grafo, 4, "Live Act Patriota",  -8.8300, 13.2450, "recinto");
-    adicionarVertice(&grafo, 5, "Intersecao Talatona",  -8.8180, 13.2300, "intersecao");
-    adicionarVertice(&grafo, 6, "Rotunda do camama",          -8.8250, 13.2380, "intersecao");
+    adicionarVertice(&grafo, 5, "Rotunda do camama",  -8.8180, 13.2300, "intersecao");
+    adicionarVertice(&grafo, 6, "Intersecao Talatona",          -8.8250, 13.2380, "intersecao");
 
     /* Arestas bidirecionais com peso Haversine */
     double d;
